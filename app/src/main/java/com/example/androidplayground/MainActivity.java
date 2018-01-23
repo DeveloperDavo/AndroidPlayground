@@ -11,6 +11,8 @@ import java.io.IOException;
 import java.util.List;
 
 import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -31,10 +33,19 @@ public class MainActivity extends AppCompatActivity {
         GitHubService service = retrofit.create(GitHubService.class);
 
         Call<List<Repo>> repos = service.listRepos("octocat");
-        try {
-            Log.d(TAG, repos.execute().toString());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+        repos.enqueue(new Callback<List<Repo>>() {
+            @Override
+            public void onResponse(Call<List<Repo>> call, Response<List<Repo>> response) {
+                Log.d(TAG, "call: " + call);
+                Log.d(TAG, "response: " + response);
+                Log.d(TAG, "responseBody: " + response.body());
+            }
+
+            @Override
+            public void onFailure(Call<List<Repo>> call, Throwable t) {
+                // TODO: error handling
+            }
+        });
     }
 }
