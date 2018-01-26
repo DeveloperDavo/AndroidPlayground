@@ -18,14 +18,14 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 
 @RunWith(AndroidJUnit4.class)
 @LargeTest
-public class UserJourneyTest {
+public class HomeScreenTest {
 
     @Rule
     public ActivityTestRule<HomeActivity> homeActivityRule =
             new ActivityTestRule<>(HomeActivity.class);
 
     @Test
-    public void shouldFollowUserJourney() {
+    public void shouldOpenDogsScreenOnClick() {
         onView(withId(R.id.btn_dogs)).check(matches(withText("Dogs")));
 
         onView(withId(R.id.btn_dogs))
@@ -33,4 +33,5 @@ public class UserJourneyTest {
 
         onView(withId(R.id.tv_placeholder)).check(matches(withText("Dogs")));
     }
+
 }
