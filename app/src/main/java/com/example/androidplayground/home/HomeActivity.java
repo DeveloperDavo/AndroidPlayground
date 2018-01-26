@@ -9,23 +9,15 @@ import android.widget.Button;
 import com.example.androidplayground.R;
 import com.example.androidplayground.dogs.DogsActivity;
 
-public class HomeActivity extends AppCompatActivity implements HomeContract.View {
+public class HomeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        Button dogsButton = findViewById(R.id.btn_dogs);
-        dogsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showDogsScreen();
-            }
-        });
     }
 
-    @Override
-    public void showDogsScreen() {
+    public void showDogsScreen(View view) {
         Intent intent = new Intent(this, DogsActivity.class);
         startActivity(intent);
     }

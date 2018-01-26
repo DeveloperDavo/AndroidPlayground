@@ -16,6 +16,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+        android:onClick="showDogsScreen"
         android:id="@+id/btn_dogs"
         android:text="@string/dogs"
         android:layout_width="wrap_content"
