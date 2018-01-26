@@ -8,6 +8,6 @@ class HomePresenter {
     }
 
     public void navigateToGitHubView() {
-        homeView.showGitHubView();
+        homeView.showDogsScreen();
     }
 }

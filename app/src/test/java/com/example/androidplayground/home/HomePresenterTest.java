@@ -21,9 +21,9 @@ public class HomePresenterTest {
         homePresenter = new HomePresenter(homeView);
     }
     @Test
-    public void shouldShowGitHubView_whenClickingButton() {
+    public void shouldShowDogsScreen_whenClickingButton() {
         homePresenter.navigateToGitHubView();
 
-        verify(homeView).showGitHubView();
+        verify(homeView).showDogsScreen();
     }
 }
