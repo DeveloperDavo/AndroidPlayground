@@ -4,8 +4,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.example.androidplayground.dogs.model.BreedsListObject;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -28,12 +26,12 @@ public class DogsActivity extends AppCompatActivity {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        DogsService service = retrofit.create(DogsService.class);
-        Call<BreedsListObject> jsonObject = service.getBreedsListObject();
+        BreedsService service = retrofit.create(BreedsService.class);
+        Call<BreedsListResponse> jsonObject = service.getBreedsListResponse();
 
-        jsonObject.enqueue(new Callback<BreedsListObject>() {
+        jsonObject.enqueue(new Callback<BreedsListResponse>() {
             @Override
-            public void onResponse(Call<BreedsListObject> call, Response<BreedsListObject> response) {
+            public void onResponse(Call<BreedsListResponse> call, Response<BreedsListResponse> response) {
                 if (response.isSuccessful()) {
                     Log.d(TAG, "responseBody: " + response.body());
                 } else {
@@ -42,7 +40,7 @@ public class DogsActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<BreedsListObject> call, Throwable t) {
+            public void onFailure(Call<BreedsListResponse> call, Throwable t) {
                 Log.e(TAG, "onFailure: ", t);
             }
         });

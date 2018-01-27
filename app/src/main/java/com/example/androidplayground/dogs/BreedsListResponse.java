@@ -1,8 +1,8 @@
-package com.example.androidplayground.dogs.model;
+package com.example.androidplayground.dogs;
 
 import java.util.List;
 
-public class BreedsListObject {
+public class BreedsListResponse {
     private List<String> message;
 
     public List<String> getMessage() {
@@ -15,7 +15,7 @@ public class BreedsListObject {
 
     @Override
     public String toString() {
-        return "BreedsListObject{" +
+        return "BreedsListResponse{" +
                 "message=" + message +
                 '}';
     }
