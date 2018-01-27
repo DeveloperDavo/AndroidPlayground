@@ -1,4 +1,4 @@
-package com.example.androidplayground;
+package com.example.androidplayground.dogs;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,14 +16,16 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class MainActivity extends AppCompatActivity {
+import com.example.androidplayground.R;
 
-    private static final String TAG = MainActivity.class.getSimpleName();
+public class DogsActivity extends AppCompatActivity {
+
+    private static final String TAG = DogsActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_dogs);
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://api.github.com/")
@@ -48,4 +50,5 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 }
