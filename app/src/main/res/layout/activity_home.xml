@@ -6,20 +6,15 @@
     android:layout_height="match_parent"
     tools:context="com.example.androidplayground.home.HomeActivity">
 
-    <TextView
+    <Button
+        android:id="@+id/btn_dogs"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:onClick="showDogsScreen"
+        android:text="@string/dogs"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:onClick="showDogsScreen"
-        android:id="@+id/btn_dogs"
-        android:text="@string/dogs"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
 
 </android.support.constraint.ConstraintLayout>
