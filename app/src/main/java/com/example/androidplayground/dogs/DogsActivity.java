@@ -34,15 +34,16 @@ public class DogsActivity extends AppCompatActivity {
         jsonObject.enqueue(new Callback<BreedsListObject>() {
             @Override
             public void onResponse(Call<BreedsListObject> call, Response<BreedsListObject> response) {
-                Log.d(TAG, "call: " + call);
-                Log.d(TAG, "response: " + response);
-                Log.d(TAG, "responseBody: " + response.body());
+                if (response.isSuccessful()) {
+                    Log.d(TAG, "responseBody: " + response.body());
+                } else {
+                    Log.e(TAG, "Response unsuccessful. Response code:" + response.code());
+                }
             }
 
             @Override
             public void onFailure(Call<BreedsListObject> call, Throwable t) {
-                // TODO: error handling
-                Log.e(TAG, "call: " + call, t);
+                Log.e(TAG, "onFailure: ", t);
             }
         });
     }
