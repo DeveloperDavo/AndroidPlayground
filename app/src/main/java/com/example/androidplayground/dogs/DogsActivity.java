@@ -4,11 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.example.androidplayground.model.Repo;
-import com.example.androidplayground.service.GitHubService;
-
-import java.io.IOException;
-import java.util.List;
+import com.example.androidplayground.dogs.model.BreedsListObject;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -28,25 +24,25 @@ public class DogsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_dogs);
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://api.github.com/")
+                .baseUrl("https://dog.ceo/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        GitHubService service = retrofit.create(GitHubService.class);
+        DogsService service = retrofit.create(DogsService.class);
+        Call<BreedsListObject> jsonObject = service.getBreedsListObject();
 
-        Call<List<Repo>> repos = service.listRepos("developerdavo");
-
-        repos.enqueue(new Callback<List<Repo>>() {
+        jsonObject.enqueue(new Callback<BreedsListObject>() {
             @Override
-            public void onResponse(Call<List<Repo>> call, Response<List<Repo>> response) {
+            public void onResponse(Call<BreedsListObject> call, Response<BreedsListObject> response) {
                 Log.d(TAG, "call: " + call);
                 Log.d(TAG, "response: " + response);
                 Log.d(TAG, "responseBody: " + response.body());
             }
 
             @Override
-            public void onFailure(Call<List<Repo>> call, Throwable t) {
+            public void onFailure(Call<BreedsListObject> call, Throwable t) {
                 // TODO: error handling
+                Log.e(TAG, "call: " + call, t);
             }
         });
     }
