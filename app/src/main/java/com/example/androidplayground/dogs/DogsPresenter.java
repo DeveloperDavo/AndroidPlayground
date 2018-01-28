@@ -19,23 +19,23 @@ public class DogsPresenter {
     }
 
     public void populateBreeds() {
-        Call<BreedsListResponse> jsonObject = breedsService.getBreedsListResponse();
+        Call<BreedsListResponse> breedsListResponseCall = breedsService.getBreedsListResponse();
 
-//        jsonObject.enqueue(new Callback<BreedsListResponse>() {
-//            @Override
-//            public void onResponse(Call<BreedsListResponse> call, Response<BreedsListResponse> response) {
-//                if (response.isSuccessful()) {
-//                    Log.d(TAG, "responseBody: " + response.body());
-//                } else {
-//                    Log.e(TAG, "Response unsuccessful. Response code:" + response.code());
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<BreedsListResponse> call, Throwable t) {
-//                Log.e(TAG, "onFailure: ", t);
-//            }
-//        });
+        breedsListResponseCall.enqueue(new Callback<BreedsListResponse>() {
+            @Override
+            public void onResponse(Call<BreedsListResponse> call, Response<BreedsListResponse> response) {
+                if (response.isSuccessful()) {
+                    Log.d(TAG, "responseBody: " + response.body());
+                } else {
+                    Log.e(TAG, "Response unsuccessful. Response code:" + response.code());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<BreedsListResponse> call, Throwable t) {
+                Log.e(TAG, "onFailure: ", t);
+            }
+        });
 
     }
 }
