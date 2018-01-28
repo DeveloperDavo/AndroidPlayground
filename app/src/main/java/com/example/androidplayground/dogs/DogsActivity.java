@@ -21,7 +21,13 @@ public class DogsActivity extends AppCompatActivity implements DogsContract.View
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dogs);
 
-        DogsPresenter dogsPresenter = new DogsPresenter(this);
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://dog.ceo/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        BreedsService service = retrofit.create(BreedsService.class);
+        DogsPresenter dogsPresenter = new DogsPresenter(this, service);
         dogsPresenter.populateBreeds();
     }
 
