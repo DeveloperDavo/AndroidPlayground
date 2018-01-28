@@ -26,7 +26,7 @@ public class DogsScreenTest {
 
     @Test
     public void shouldScrollToItem() throws Exception {
-        int position = 1;
+        int position = 15;
         onView(withId(R.id.rv_dogs))
                 .perform(RecyclerViewActions.scrollToPosition(position));
 

@@ -9,7 +9,11 @@ import android.widget.TextView;
 import com.example.androidplayground.R;
 
 public class DogsAdapter extends RecyclerView.Adapter<DogsAdapter.ViewHolder> {
-    private String[] dataSet = new String[]{"dog0", "dog1", "dog2", "dog3"};
+    private String[] dataSet = new String[]{
+            "dog0", "dog1", "dog2", "dog3", "dog4", "dog5", "dog6", "dog7",
+            "dog8", "dog9", "dog10", "dog11", "dog12", "dog13", "dog14", "dog15",
+            "dog16", "dog17", "dog18", "dog19", "dog20"
+    };
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
